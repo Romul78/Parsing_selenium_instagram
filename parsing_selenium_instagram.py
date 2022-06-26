@@ -55,7 +55,7 @@ def get_login(login):
         EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Not Now')]"))).click()
 
 
-# Функцмя прокручивания экрана вниз
+# Screen scroll down function
 def scroll(end_scroll):
     screen_height = driver.execute_script("return window.screen.height;")  # get the screen height of the web
     i = 0
@@ -76,6 +76,7 @@ def scroll(end_scroll):
 
 
 def get_img():
+    # Folder where the downloaded files will be located
     keyword = 'img_insta'
 
     driver.find_elements(By.XPATH, "//div[@class='vNnq7C weEfm']")
@@ -98,7 +99,7 @@ def get_img():
         for j in images:
             links.append(j)
 
-        print('Number of scraped images: ', len(links))
+        # print('Number of scraped images: ', len(links))
 
         i += 1
         time.sleep(10)
@@ -122,7 +123,6 @@ def get_img():
             wget.download(image, save_as)
             time.sleep(2)
             counter += 1
-
     else:
         os.mkdir(keyword)
         counter = 0
@@ -133,7 +133,6 @@ def get_img():
             counter += 1
 
 
-# -------------------------------------------------------------
 
 def main():
     url = 'https://www.instagram.com/'
